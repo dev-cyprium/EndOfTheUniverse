@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/button_active.png-f571553375cd814eaed9243d88896f85.stex"
+path="res://.import/button_active.png-2ec5bf2330ce2ea4283dae17b6e90d7d.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/button_active.png"
-dest_files=[ "res://.import/button_active.png-f571553375cd814eaed9243d88896f85.stex" ]
+source_file="res://assets/Gauges/button_active.png"
+dest_files=[ "res://.import/button_active.png-2ec5bf2330ce2ea4283dae17b6e90d7d.stex" ]
 
 [params]
 

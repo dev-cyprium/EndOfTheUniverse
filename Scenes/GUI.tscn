@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://assets/gui_item_bg.png" type="Texture" id=1]
 [ext_resource path="res://assets/Roboto-Regular.ttf" type="DynamicFontData" id=2]
@@ -7,9 +7,10 @@
 [ext_resource path="res://assets/medbay.png" type="Texture" id=5]
 [ext_resource path="res://assets/wire_gui.png" type="Texture" id=6]
 [ext_resource path="res://Scenes/RichTextLabel.gd" type="Script" id=7]
-[ext_resource path="res://assets/button_active.png" type="Texture" id=8]
-[ext_resource path="res://assets/button_inactive.png" type="Texture" id=9]
+[ext_resource path="res://assets/Gauges/button_active.png" type="Texture" id=8]
+[ext_resource path="res://assets/Gauges/button_inactive.png" type="Texture" id=9]
 [ext_resource path="res://Scripts/UI/Switch.gd" type="Script" id=10]
+[ext_resource path="res://assets/Gauges/button_super.png" type="Texture" id=11]
 
 [sub_resource type="DynamicFont" id=1]
 size = 22
@@ -206,23 +207,25 @@ __meta__ = {
 }
 
 [node name="Gauge" type="Control" parent="."]
-margin_left = 23.0807
-margin_top = 204.783
-margin_right = 172.081
-margin_bottom = 255.783
+margin_left = 23.0
+margin_top = 177.174
+margin_right = 172.0
+margin_bottom = 259.174
 script = ExtResource( 10 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
-onState = ExtResource( 8 )
-offState = ExtResource( 9 )
+on_state = ExtResource( 8 )
+off_state = ExtResource( 9 )
+super_state = ExtResource( 11 )
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Gauge"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 8.0
-margin_top = -23.0
-margin_right = -6.0
+margin_left = 7.0
+margin_top = 25.0
+margin_right = -7.0
+margin_bottom = -4.0
 grow_horizontal = 0
 grow_vertical = 0
 __meta__ = {
@@ -294,7 +297,6 @@ __meta__ = {
 }
 
 [node name="MarginContainer" type="MarginContainer" parent="Gauge/VBoxContainer/HBoxContainer2"]
-margin_left = 8.0
 margin_right = 36.0
 margin_bottom = 20.0
 
@@ -303,3 +305,4 @@ margin_right = 36.0
 margin_bottom = 20.0
 text = "Buy"
 align = 0
+[connection signal="pressed" from="Gauge/VBoxContainer/HBoxContainer2/MarginContainer/Buy" to="Gauge" method="_on_Buy_pressed"]
