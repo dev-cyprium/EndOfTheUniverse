@@ -1,0 +1,203 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://assets/gui_item_bg.png" type="Texture" id=1]
+[ext_resource path="res://assets/Roboto-Regular.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://assets/asteroid.png" type="Texture" id=3]
+[ext_resource path="res://assets/HumanAstro.png" type="Texture" id=4]
+[ext_resource path="res://assets/medbay.png" type="Texture" id=5]
+[ext_resource path="res://assets/wire_gui.png" type="Texture" id=6]
+[ext_resource path="res://Scenes/RichTextLabel.gd" type="Script" id=7]
+
+[sub_resource type="DynamicFont" id=1]
+size = 22
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 12
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 2 )
+
+[node name="Control" type="Control"]
+anchor_top = -0.000396322
+anchor_right = 1.0
+anchor_bottom = 0.999604
+margin_left = -4.27411
+margin_top = -0.699368
+margin_right = -4.27411
+margin_bottom = -0.699402
+mouse_filter = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HUD" type="NinePatchRect" parent="."]
+anchor_top = 1.0
+anchor_bottom = 1.0
+margin_left = 9.0
+margin_top = -493.0
+margin_right = 186.0
+margin_bottom = -102.0
+texture = ExtResource( 1 )
+patch_margin_left = 39
+patch_margin_top = 34
+patch_margin_right = 40
+patch_margin_bottom = 35
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="HUD"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -52.95
+margin_top = 25.3268
+margin_right = 51.05
+margin_bottom = 82.3268
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "CONTROL 
+PANEL"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Resources" type="NinePatchRect" parent="."]
+anchor_top = 1.0
+anchor_bottom = 1.0
+margin_left = 7.10994
+margin_top = -168.055
+margin_right = 187.11
+margin_bottom = -2.0553
+texture = ExtResource( 1 )
+patch_margin_left = 36
+patch_margin_top = 34
+patch_margin_right = 36
+patch_margin_bottom = 35
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Resources"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -61.5
+margin_top = 17.2174
+margin_right = 61.5
+margin_bottom = 44.2174
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "RESOURCES"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ProgressBar" type="ProgressBar" parent="Resources"]
+margin_left = 50.38
+margin_top = 50.095
+margin_right = 162.38
+margin_bottom = 66.095
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="Resources"]
+margin_left = 12.5867
+margin_top = 41.095
+margin_right = 44.5867
+margin_bottom = 73.095
+texture = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Transmition" type="NinePatchRect" parent="."]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -191.0
+margin_top = -135.802
+margin_right = 191.0
+margin_bottom = -6.80188
+texture = ExtResource( 1 )
+patch_margin_left = 39
+patch_margin_top = 33
+patch_margin_right = 38
+patch_margin_bottom = 35
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Transmition"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -128.5
+margin_top = 11.752
+margin_right = 128.5
+margin_bottom = 68.752
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "INCOMING TRANSMITION"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Medbay" type="TextureRect" parent="Transmition"]
+margin_left = 33.2051
+margin_top = 35.5344
+margin_right = 91.2051
+margin_bottom = 93.5344
+texture = ExtResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Captain" type="TextureRect" parent="Transmition/Medbay"]
+margin_left = 14.9643
+margin_top = 15.4044
+margin_right = 54.9643
+margin_bottom = 55.4044
+texture = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Message" type="NinePatchRect" parent="Transmition"]
+margin_left = 99.0
+margin_top = 35.0
+margin_right = 347.0
+margin_bottom = 98.0
+texture = ExtResource( 6 )
+region_rect = Rect2( -0.0563507, -0.340847, 36.7839, 27.2708 )
+patch_margin_left = 5
+patch_margin_top = 5
+patch_margin_right = 5
+patch_margin_bottom = 5
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Transmition/Message"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 8.0
+margin_top = 7.0
+margin_right = -9.0
+margin_bottom = -7.0
+custom_fonts/normal_font = SubResource( 2 )
+custom_colors/default_color = Color( 0.0901961, 0.0901961, 0.0901961, 1 )
+override_selected_font_color = true
+script = ExtResource( 7 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
