@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://assets/gui_item_bg.png" type="Texture" id=1]
 [ext_resource path="res://assets/Roboto-Regular.ttf" type="DynamicFontData" id=2]
@@ -7,6 +7,9 @@
 [ext_resource path="res://assets/medbay.png" type="Texture" id=5]
 [ext_resource path="res://assets/wire_gui.png" type="Texture" id=6]
 [ext_resource path="res://Scenes/RichTextLabel.gd" type="Script" id=7]
+[ext_resource path="res://assets/button_active.png" type="Texture" id=8]
+[ext_resource path="res://assets/button_inactive.png" type="Texture" id=9]
+[ext_resource path="res://Scripts/UI/Switch.gd" type="Script" id=10]
 
 [sub_resource type="DynamicFont" id=1]
 size = 22
@@ -25,6 +28,7 @@ margin_left = -4.27411
 margin_top = -0.699368
 margin_right = -4.27411
 margin_bottom = -0.699402
+mouse_filter = 2
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -32,10 +36,10 @@ __meta__ = {
 [node name="HUD" type="NinePatchRect" parent="."]
 anchor_top = 1.0
 anchor_bottom = 1.0
-margin_left = 9.0
-margin_top = -493.0
-margin_right = 186.0
-margin_bottom = -102.0
+margin_left = 10.4713
+margin_top = -511.67
+margin_right = 187.471
+margin_bottom = -120.67
 texture = ExtResource( 1 )
 patch_margin_left = 39
 patch_margin_top = 34
@@ -66,10 +70,10 @@ __meta__ = {
 [node name="Resources" type="NinePatchRect" parent="."]
 anchor_top = 1.0
 anchor_bottom = 1.0
-margin_left = 7.10994
-margin_top = -168.055
-margin_right = 187.11
-margin_bottom = -2.0553
+margin_left = 8.16255
+margin_top = -177.529
+margin_right = 188.163
+margin_bottom = -11.529
 texture = ExtResource( 1 )
 patch_margin_left = 36
 patch_margin_top = 34
@@ -201,8 +205,101 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="CheckBox" type="CheckBox" parent="."]
-margin_left = 41.2536
-margin_top = 269.735
-margin_right = 65.2536
-margin_bottom = 293.735
+[node name="Gauge" type="Control" parent="."]
+margin_left = 23.0807
+margin_top = 204.783
+margin_right = 172.081
+margin_bottom = 255.783
+script = ExtResource( 10 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+onState = ExtResource( 8 )
+offState = ExtResource( 9 )
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Gauge"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 8.0
+margin_top = -23.0
+margin_right = -6.0
+grow_horizontal = 0
+grow_vertical = 0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Gauge/VBoxContainer"]
+margin_right = 135.0
+margin_bottom = 14.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Asteroid Harvester"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Gauge/VBoxContainer"]
+margin_top = 18.0
+margin_right = 135.0
+margin_bottom = 50.0
+custom_constants/separation = -2
+alignment = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Renderer#1" type="TextureRect" parent="Gauge/VBoxContainer/HBoxContainer"]
+margin_left = 6.0
+margin_right = 38.0
+margin_bottom = 32.0
+texture = ExtResource( 9 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Renderer#2" type="TextureRect" parent="Gauge/VBoxContainer/HBoxContainer"]
+margin_left = 36.0
+margin_right = 68.0
+margin_bottom = 32.0
+texture = ExtResource( 9 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Renderer#3" type="TextureRect" parent="Gauge/VBoxContainer/HBoxContainer"]
+margin_left = 66.0
+margin_right = 98.0
+margin_bottom = 32.0
+texture = ExtResource( 9 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Renderer#4" type="TextureRect" parent="Gauge/VBoxContainer/HBoxContainer"]
+margin_left = 96.0
+margin_right = 128.0
+margin_bottom = 32.0
+texture = ExtResource( 9 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="Gauge/VBoxContainer"]
+margin_top = 54.0
+margin_right = 135.0
+margin_bottom = 74.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MarginContainer" type="MarginContainer" parent="Gauge/VBoxContainer/HBoxContainer2"]
+margin_left = 8.0
+margin_right = 36.0
+margin_bottom = 20.0
+
+[node name="Buy" type="Button" parent="Gauge/VBoxContainer/HBoxContainer2/MarginContainer"]
+margin_right = 36.0
+margin_bottom = 20.0
+text = "Buy"
+align = 0

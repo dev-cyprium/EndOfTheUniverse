@@ -5,7 +5,6 @@ signal ItemSelected
 
 func _ready():
 	var manager = get_tree().get_nodes_in_group("manager")
-	print("MANAGER: ", manager)
 	var _ret = self.connect("ItemSelected", manager[0], "_handle_selected")
 
 func spawn_selection(node):
