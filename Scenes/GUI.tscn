@@ -25,7 +25,6 @@ margin_left = -4.27411
 margin_top = -0.699368
 margin_right = -4.27411
 margin_bottom = -0.699402
-mouse_filter = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -201,3 +200,9 @@ script = ExtResource( 7 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="CheckBox" type="CheckBox" parent="."]
+margin_left = 41.2536
+margin_top = 269.735
+margin_right = 65.2536
+margin_bottom = 293.735
