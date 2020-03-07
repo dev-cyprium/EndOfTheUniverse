@@ -2,10 +2,10 @@
 
 [ext_resource path="res://assets/Sun.png" type="Texture" id=1]
 [ext_resource path="res://assets/Earth.png" type="Texture" id=2]
-[ext_resource path="res://Scripts/Rotate.gd" type="Script" id=3]
-[ext_resource path="res://Scripts/Starlight.gd" type="Script" id=4]
+[ext_resource path="res://Scripts/Game/Rotate.gd" type="Script" id=3]
+[ext_resource path="res://Scripts/Game/Starlight.gd" type="Script" id=4]
 [ext_resource path="res://assets/asteroid.png" type="Texture" id=5]
-[ext_resource path="res://Scenes/GUI.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Scenes/UI/GUI.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Scripts/Manager.gd" type="Script" id=7]
 
 [sub_resource type="CircleShape2D" id=1]
@@ -44,6 +44,10 @@ texture = ExtResource( 1 )
 position = Vector2( -143.108, 100.116 )
 texture = ExtResource( 2 )
 script = ExtResource( 3 )
+extra = "EarthGauge"
+
+[node name="RocketSpawnPoint" type="Node2D" parent="sun/earth"]
+position = Vector2( -0.771271, -23.6893 )
 
 [node name="KinematicBody2D" type="KinematicBody2D" parent="sun/earth"]
 input_pickable = true
@@ -64,5 +68,6 @@ input_pickable = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="sun/earth/asteroid/KinematicBody2D"]
 shape = SubResource( 2 )
+[connection signal="CancelSelection" from="UI/GUI" to="Manager" method="_on_GUI_CancelSelection"]
 [connection signal="input_event" from="sun/earth/KinematicBody2D" to="sun/earth" method="_on_KinematicBody2D_input_event"]
 [connection signal="input_event" from="sun/earth/asteroid/KinematicBody2D" to="sun/earth/asteroid" method="_on_KinematicBody2D_input_event"]

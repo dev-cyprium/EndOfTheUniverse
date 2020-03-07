@@ -1,22 +1,12 @@
 extends Node
 
-onready var clicker = preload("res://Scenes/Selectable.tscn")
+onready var clicker = preload("res://Scenes/GameObject/Selectable.tscn")
 var go = null
 var prevParent = null
 var handled = false
 
 func _ready():
 	go = clicker.instance()
-
-# func _input(event):
-#	if handled:
-#		handled = false
-#		return
-	
-#	if event is InputEventMouseButton:
-#		if prevParent != null:
-#			prevParent.remove_child(go)
-#			prevParent = null
 
 func _handle_selected(node):
 	if prevParent != null:
@@ -30,3 +20,11 @@ func _handle_selected(node):
 	
 	prevParent = node
 	handled = true
+
+func _on_GUI_CancelSelection():
+	if prevParent:
+		prevParent.remove_child(go)
+		var nodes = get_tree().get_nodes_in_group("extra")
+		for node in nodes:
+			node.hide()
+	prevParent = null
