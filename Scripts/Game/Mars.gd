@@ -6,7 +6,6 @@ var manager = null
 func _ready():
 	manager = get_tree().get_nodes_in_group("manager")[0]
 	spawn = get_node("../earth/RocketSpawnPoint")
-	spawn_rocket()
 
 func spawn_rocket():
 	var node = rocket.instance()
