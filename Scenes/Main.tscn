@@ -11,7 +11,7 @@
 [ext_resource path="res://assets/mars.png" type="Texture" id=9]
 [ext_resource path="res://assets/sounds/space.ogg" type="AudioStream" id=10]
 [ext_resource path="res://assets/sounds/click.ogg" type="AudioStream" id=11]
-[ext_resource path="res://Scenes/GameObject/MarsRocket.tscn" type="PackedScene" id=12]
+[ext_resource path="res://Scripts/Game/Mars.gd" type="Script" id=12]
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 23.7286
@@ -63,9 +63,6 @@ extra = "EarthGauge"
 
 [node name="RocketSpawnPoint" type="Node2D" parent="sun/earth"]
 position = Vector2( 0.098772, 0.925621 )
-
-[node name="Rocket" parent="sun/earth/RocketSpawnPoint" instance=ExtResource( 12 )]
-position = Vector2( 92.9312, -101.335 )
 
 [node name="EarthArea" type="Area2D" parent="sun/earth"]
 
@@ -137,7 +134,7 @@ bus = "Sound Effect"
 [node name="mars" type="Sprite" parent="sun"]
 position = Vector2( 4.1825, -591.727 )
 texture = ExtResource( 9 )
-script = ExtResource( 8 )
+script = ExtResource( 12 )
 extra = "MarsGauge"
 
 [node name="MarsArea" type="Area2D" parent="sun/mars"]
@@ -164,6 +161,7 @@ bus = "Main"
 [connection signal="ResourceUpdate" from="Manager" to="UI/GUI" method="_on_Manager_ResourceUpdate"]
 [connection signal="CancelSelection" from="UI/GUI" to="Manager" method="_on_GUI_CancelSelection"]
 [connection signal="EarthGaugePress" from="UI/GUI" to="sun/earth" method="_on_GUI_EarthGaugePress"]
+[connection signal="MarsGaugePress" from="UI/GUI" to="sun/mars" method="_on_GUI_MarsGaugePress"]
 [connection signal="input_event" from="sun/earth/EarthArea" to="sun/earth" method="_on_clickable_input_event"]
 [connection signal="input_event" from="sun/earth/asteroid/AsteroidArea" to="sun/earth/asteroid" method="_on_clickable_input_event"]
 [connection signal="input_event" from="sun/earth/asteroid#3/AsteroidArea" to="sun/earth/asteroid#3" method="_on_clickable_input_event"]

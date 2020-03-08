@@ -3,8 +3,10 @@ extends RichTextLabel
 var texts = [
 	"Captain, the matters are urgent. We need to evacuate the Solar system right away! The sun is about to consume everything!",
 	"Start by minning that asteriod over there. And be quick! There is no time to spear",
-	"[LMB] on Earth to create a new asteroid miner"
+	"[LMB] on Earth to create a new asteroid miner",
+	"[RMB] to pan your view"
 ]
+
 var index = 0
 var activeText = texts[index]
 var timer = 0

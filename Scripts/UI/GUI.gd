@@ -2,6 +2,9 @@ extends Control
 
 signal CancelSelection
 signal EarthGaugePress
+signal MarsGaugePress
+
+var dust_progress = null
 var asteroid_progress = null
 var camera = null
 var pan_top = false
@@ -15,15 +18,20 @@ var movement = null
 func _ready():
 	camera = get_tree().get_nodes_in_group("main_camera")[0]
 	asteroid_progress = find_node("AsteroidProgress")
+	dust_progress = find_node("DustProgress")
 
 func _on_Button_pressed():
 	emit_signal("CancelSelection")
 
 func _on_Manager_ResourceUpdate(resources):
 	asteroid_progress.value = resources["asteroid"]
+	dust_progress.value = resources["dust"]
 
 func _on_EarthGauge_ButtonPresss(gauge):
 	emit_signal("EarthGaugePress", gauge)
+
+func _on_MarsGauge_ButtonPresss(gauge):
+	emit_signal("MarsGaugePress", gauge)
 
 func _process(delta):
 	if dragging and movement:

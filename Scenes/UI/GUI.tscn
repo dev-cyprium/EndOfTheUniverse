@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://assets/gui_item_bg.png" type="Texture" id=1]
 [ext_resource path="res://assets/Roboto-Regular.ttf" type="DynamicFontData" id=2]
@@ -11,6 +11,8 @@
 [ext_resource path="res://Scripts/UI/GUI.gd" type="Script" id=9]
 [ext_resource path="res://Scenes/UI/AsteroidLabel.gd" type="Script" id=10]
 [ext_resource path="res://Scenes/PlanetGauges/MarsGauge.tscn" type="PackedScene" id=11]
+[ext_resource path="res://assets/mars-dust.png" type="Texture" id=12]
+[ext_resource path="res://Scenes/UI/QuitBtn.gd" type="Script" id=13]
 
 [sub_resource type="DynamicFont" id=1]
 size = 22
@@ -129,6 +131,38 @@ margin_top = 41.095
 margin_right = 44.5867
 margin_bottom = 73.095
 texture = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="DustProgress" type="ProgressBar" parent="Resources"]
+margin_left = 49.6062
+margin_top = 82.5939
+margin_right = 161.606
+margin_bottom = 98.5939
+percent_visible = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Resource" type="Label" parent="Resources/DustProgress"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = 1.5094
+margin_bottom = 1.5094
+text = "0/100"
+align = 1
+script = ExtResource( 10 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Dust" type="TextureRect" parent="Resources"]
+margin_left = 24.1935
+margin_top = 80.558
+margin_right = 56.1935
+margin_bottom = 112.558
+texture = ExtResource( 12 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -253,14 +287,25 @@ anchor_left = 0.096
 anchor_top = 0.703
 anchor_right = 0.096
 anchor_bottom = 0.703
-margin_left = -57.3632
-margin_top = -29.9311
-margin_right = 59.6368
-margin_bottom = -9.93112
+margin_left = -59.9299
+margin_top = -57.6517
+margin_right = 57.0701
+margin_bottom = -37.6517
 text = "Cancel Selection"
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="QuitBtn" type="Button" parent="."]
+margin_left = 38.1728
+margin_top = 395.034
+margin_right = 155.173
+margin_bottom = 415.034
+text = "Quit"
+script = ExtResource( 13 )
 [connection signal="value_changed" from="Resources/AsteroidProgress" to="Resources/AsteroidProgress/Resource" method="_on_AsteroidProgress_value_changed"]
+[connection signal="value_changed" from="Resources/DustProgress" to="Resources/DustProgress/Resource" method="_on_AsteroidProgress_value_changed"]
 [connection signal="ButtonPresss" from="Extra/EarthGauge" to="." method="_on_EarthGauge_ButtonPresss"]
+[connection signal="ButtonPresss" from="Extra/MarsGauge" to="." method="_on_MarsGauge_ButtonPresss"]
 [connection signal="pressed" from="Button" to="." method="_on_Button_pressed"]
+[connection signal="pressed" from="QuitBtn" to="QuitBtn" method="_on_QuitBtn_pressed"]

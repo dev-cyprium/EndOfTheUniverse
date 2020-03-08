@@ -37,7 +37,7 @@ func _process(delta):
 	if insideEarthTimer >= 0.4 and not resourceIncreasedFrame:
 		resourceIncreasedFrame = true
 		particle.emitting = false
-		manager.incr_resource('asteroid', 1)
+		manager.incr_resource('dust', 5)
 	
 	if insideAsteroidTimer > 2.3:
 		insideAsteroidTimer = 0
@@ -71,5 +71,5 @@ func _physics_process(delta):
 func _on_KinematicBody2D_area_shape_entered(_area_id, area, _b, _c):
 	if (target.is_in_group(destinationGroup) and area.name == "MarsArea"):
 		insideAsteroid = true
-	if (target.name != "asteroid" and area.name == "EarthArea"):
+	if (target.name != "MarsTarget" and area.name == "EarthArea"):
 		insideEarth = true

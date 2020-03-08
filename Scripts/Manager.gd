@@ -5,7 +5,8 @@ var go = null
 var prevParent = null
 var handled = false
 var resources = {
-	"asteroid": 0
+	"asteroid": 0,
+	"dust": 0
 }
 
 signal ResourceUpdate
@@ -27,6 +28,7 @@ func _handle_selected(node):
 	handled = true
 
 func incr_resource(type, amt):
+	print("INCR CALLED!")
 	resources[type] += amt
 	emit_signal("ResourceUpdate", resources)
 	
