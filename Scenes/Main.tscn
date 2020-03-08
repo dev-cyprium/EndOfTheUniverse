@@ -140,9 +140,9 @@ texture = ExtResource( 9 )
 script = ExtResource( 8 )
 extra = "MarsGauge"
 
-[node name="Area2D" type="Area2D" parent="sun/mars"]
+[node name="MarsArea" type="Area2D" parent="sun/mars"]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="sun/mars/Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="sun/mars/MarsArea"]
 shape = SubResource( 3 )
 
 [node name="Click" type="AudioStreamPlayer2D" parent="sun/mars"]
@@ -168,4 +168,4 @@ bus = "Main"
 [connection signal="input_event" from="sun/earth/asteroid/AsteroidArea" to="sun/earth/asteroid" method="_on_clickable_input_event"]
 [connection signal="input_event" from="sun/earth/asteroid#3/AsteroidArea" to="sun/earth/asteroid#3" method="_on_clickable_input_event"]
 [connection signal="input_event" from="sun/earth/asteroid#2/AsteroidArea" to="sun/earth/asteroid#2" method="_on_clickable_input_event"]
-[connection signal="input_event" from="sun/mars/Area2D" to="sun/mars" method="_on_clickable_input_event"]
+[connection signal="input_event" from="sun/mars/MarsArea" to="sun/mars" method="_on_clickable_input_event"]
