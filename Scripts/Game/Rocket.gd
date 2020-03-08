@@ -9,7 +9,8 @@ var resourceIncreasedFrame = false
 var asteroidInsideFrame = false
 
 func asteroid():
-	return get_tree().get_nodes_in_group("asteroid")[0]
+	var asteroids = get_tree().get_nodes_in_group("asteroid")
+	return asteroids[randi() % asteroids.size()]
 
 func _ready():
 	manager = get_tree().get_nodes_in_group("manager")[0]
@@ -62,7 +63,7 @@ func _physics_process(delta):
 
 
 func _on_KinematicBody2D_area_shape_entered(_area_id, area, _b, _c):
-	if (target.name == "asteroid" and area.name == "AsteroidArea"):
+	if (target.is_in_group("asteroid") and area.name == "AsteroidArea"):
 		insideAsteroid = true
 	if (target.name != "asteroid" and area.name == "EarthArea"):
 		insideEarth = true

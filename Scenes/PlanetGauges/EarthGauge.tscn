@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://Scenes/UI/Gauge.tscn" type="PackedScene" id=1]
+[ext_resource path="res://assets/asteroid.png" type="Texture" id=2]
 
 [node name="EarthGauge" instance=ExtResource( 1 )]
 margin_left = 0.0
@@ -11,3 +12,27 @@ rect_min_size = Vector2( 0, 78 )
 
 [node name="Wraper" parent="." index="0"]
 margin_top = 0.0
+
+[node name="Controls" parent="Wraper" index="2"]
+margin_bottom = 86.0
+
+[node name="Buy" parent="Wraper/Controls" index="0"]
+margin_bottom = 32.0
+
+[node name="Status" parent="Wraper/Controls" index="1"]
+margin_top = 9.0
+margin_bottom = 23.0
+
+[node name="TextureRect" type="TextureRect" parent="Wraper/Controls" index="2"]
+margin_left = 65.0
+margin_right = 97.0
+margin_bottom = 32.0
+texture = ExtResource( 2 )
+
+[node name="Label" type="Label" parent="Wraper/Controls" index="3"]
+margin_left = 101.0
+margin_top = 9.0
+margin_right = 109.0
+margin_bottom = 23.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "5"

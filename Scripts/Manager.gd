@@ -29,6 +29,9 @@ func _handle_selected(node):
 func incr_resource(type, amt):
 	resources[type] += amt
 	emit_signal("ResourceUpdate", resources)
+	
+func get_resource(type):
+	return resources[type]
 
 func _on_GUI_CancelSelection():
 	if prevParent:
@@ -37,3 +40,7 @@ func _on_GUI_CancelSelection():
 		for node in nodes:
 			node.hide()
 	prevParent = null
+
+
+func _on_clickable_input_event(viewport, event, shape_idx):
+	pass # Replace with function body.

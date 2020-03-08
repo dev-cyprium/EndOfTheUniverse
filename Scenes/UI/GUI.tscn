@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://assets/gui_item_bg.png" type="Texture" id=1]
 [ext_resource path="res://assets/Roboto-Regular.ttf" type="DynamicFontData" id=2]
@@ -9,6 +9,7 @@
 [ext_resource path="res://Scripts/UI/RichTextLabel.gd" type="Script" id=7]
 [ext_resource path="res://Scenes/PlanetGauges/EarthGauge.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Scripts/UI/GUI.gd" type="Script" id=9]
+[ext_resource path="res://Scenes/UI/AsteroidLabel.gd" type="Script" id=10]
 
 [sub_resource type="DynamicFont" id=1]
 size = 22
@@ -70,10 +71,10 @@ __meta__ = {
 [node name="Resources" type="NinePatchRect" parent="."]
 anchor_top = 1.0
 anchor_bottom = 1.0
-margin_left = 8.16255
-margin_top = -177.529
-margin_right = 188.163
-margin_bottom = -11.529
+margin_left = 8.5399
+margin_top = -177.152
+margin_right = 188.54
+margin_bottom = -11.1517
 texture = ExtResource( 1 )
 patch_margin_left = 36
 patch_margin_top = 34
@@ -104,6 +105,19 @@ margin_left = 50.38
 margin_top = 50.095
 margin_right = 162.38
 margin_bottom = 66.095
+percent_visible = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Resource" type="Label" parent="Resources/AsteroidProgress"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = 1.5094
+margin_bottom = 1.5094
+text = "0/100"
+align = 1
+script = ExtResource( 10 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -238,4 +252,6 @@ text = "Cancel Selection"
 __meta__ = {
 "_edit_use_anchors_": false
 }
+[connection signal="value_changed" from="Resources/AsteroidProgress" to="Resources/AsteroidProgress/Resource" method="_on_AsteroidProgress_value_changed"]
+[connection signal="ButtonPresss" from="Extra/EarthGauge" to="." method="_on_EarthGauge_ButtonPresss"]
 [connection signal="pressed" from="Button" to="." method="_on_Button_pressed"]
