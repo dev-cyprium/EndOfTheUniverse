@@ -41,6 +41,3 @@ func _on_GUI_CancelSelection():
 			node.hide()
 	prevParent = null
 
-
-func _on_clickable_input_event(viewport, event, shape_idx):
-	pass # Replace with function body.

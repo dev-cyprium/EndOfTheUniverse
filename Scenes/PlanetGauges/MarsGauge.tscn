@@ -3,14 +3,15 @@
 [ext_resource path="res://Scenes/UI/Gauge.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/asteroid.png" type="Texture" id=2]
 
-[node name="EarthGauge" instance=ExtResource( 1 )]
+[node name="MarsGauge" instance=ExtResource( 1 )]
 margin_left = 0.0
 margin_top = 0.0
 margin_right = 149.0
-margin_bottom = 74.0
+margin_bottom = 82.0
+rect_min_size = Vector2( 0, 82 )
 
-[node name="Wraper" parent="." index="0"]
-margin_top = 0.0
+[node name="Name" parent="Wraper" index="0"]
+text = "Mars Miner"
 
 [node name="Controls" parent="Wraper" index="2"]
 margin_bottom = 86.0
@@ -31,7 +32,7 @@ texture = ExtResource( 2 )
 [node name="Label" type="Label" parent="Wraper/Controls" index="3"]
 margin_left = 101.0
 margin_top = 9.0
-margin_right = 109.0
+margin_right = 117.0
 margin_bottom = 23.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
-text = "5"
+text = "60"

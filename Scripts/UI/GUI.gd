@@ -8,8 +8,9 @@ var pan_top = false
 var pan_bottom = false
 var pan_left = false
 var pan_right = false
-export var pan_speed = 250.0
-export var pan_edge = 35
+
+var dragging = false
+var movement = null
 
 func _ready():
 	camera = get_tree().get_nodes_in_group("main_camera")[0]
@@ -25,40 +26,17 @@ func _on_EarthGauge_ButtonPresss(gauge):
 	emit_signal("EarthGaugePress", gauge)
 
 func _process(delta):
-	if pan_left:
-		camera.position.x -= delta * pan_speed
-	
-	if pan_right:
-		camera.position.x += delta * pan_speed
-	
-	if pan_top:
-		camera.position.y -= delta * pan_speed
-		
-	if pan_bottom:
-		camera.position.y += delta * pan_speed
+	if dragging and movement:
+		camera.position += -movement * 1.12
+		movement = 0
 
 func _input(event):
 	if event is InputEventMouseMotion:
-		if event.position.y < pan_edge:
-			pan_top = true
-			
-		if event.position.y > pan_edge:
-			pan_top = false
-			
-		if event.position.y > get_viewport().size.y - pan_edge:
-			pan_bottom = true
-			
-		if event.position.y < get_viewport().size.y - pan_edge:
-			pan_bottom = false
-			
-		if event.position.x < pan_edge:
-			pan_left = true
-		
-		if event.position.x > pan_edge:
-			pan_left = false
-			
-		if event.position.x > get_viewport().size.x - pan_edge:
-			pan_right = true
-			
-		if event.position.x < get_viewport().size.x - pan_edge:
-			pan_right = false
+		if (dragging):
+			movement = event.relative
+
+	if event is InputEventMouseButton:
+		if event.button_index == 2 and not(dragging):
+			dragging = true
+		elif event.button_index == 2 and dragging:
+			dragging = false
