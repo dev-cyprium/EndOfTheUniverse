@@ -18,7 +18,7 @@ func spawn_selection(node):
 			node.hide()
 	emit_signal("ItemSelected", node)
 
-func _on_KinematicBody2D_input_event(_viewport, event, _shape_idx):
+func _on_clickable_input_event(_viewport, event, _shape_idx):
 	if event is InputEventMouseButton:
 		if(event.button_index == 1 and 
 		   event.is_pressed() and

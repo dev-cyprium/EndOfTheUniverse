@@ -9,7 +9,6 @@ signal StateChanged
 var state = 0
 
 func _ready():
-	print("INITIALIZED!")
 	for child in get_child(0).get_child(1).get_children():
 		child.texture = off_state;
 

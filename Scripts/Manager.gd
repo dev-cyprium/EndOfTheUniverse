@@ -4,6 +4,11 @@ onready var clicker = preload("res://Scenes/GameObject/Selectable.tscn")
 var go = null
 var prevParent = null
 var handled = false
+var resources = {
+	"asteroid": 0
+}
+
+signal ResourceUpdate
 
 func _ready():
 	go = clicker.instance()
@@ -20,6 +25,10 @@ func _handle_selected(node):
 	
 	prevParent = node
 	handled = true
+
+func incr_resource(type, amt):
+	resources[type] += amt
+	emit_signal("ResourceUpdate", resources)
 
 func _on_GUI_CancelSelection():
 	if prevParent:

@@ -3,19 +3,19 @@
 [ext_resource path="res://assets/rocket.png" type="Texture" id=1]
 [ext_resource path="res://Scripts/Game/Rocket.gd" type="Script" id=2]
 
-[sub_resource type="CapsuleShape2D" id=4]
+[sub_resource type="CapsuleShape2D" id=5]
 radius = 2.79692
 height = 4.92812
 
-[sub_resource type="Gradient" id=1]
+[sub_resource type="Gradient" id=2]
 offsets = PoolRealArray( 0.013468, 1 )
 colors = PoolColorArray( 1, 0.952148, 0, 1, 1, 1, 1, 1 )
 
-[sub_resource type="GradientTexture" id=2]
-gradient = SubResource( 1 )
+[sub_resource type="GradientTexture" id=3]
+gradient = SubResource( 2 )
 width = 1024
 
-[sub_resource type="ParticlesMaterial" id=3]
+[sub_resource type="ParticlesMaterial" id=4]
 render_priority = -1
 flag_disable_z = true
 gravity = Vector3( 0, 50, 0 )
@@ -27,7 +27,7 @@ angle = 154.2
 angle_random = 0.27
 scale = 0.5
 scale_random = 1.0
-color_ramp = SubResource( 2 )
+color_ramp = SubResource( 3 )
 
 [node name="Rocket" type="Node2D"]
 
@@ -35,29 +35,30 @@ color_ramp = SubResource( 2 )
 script = ExtResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area"]
-shape = SubResource( 4 )
+shape = SubResource( 5 )
 
-[node name="Sprite2" type="Sprite" parent="Area"]
+[node name="RocketSprite" type="Sprite" parent="Area"]
+z_index = -5
 texture = ExtResource( 1 )
 
-[node name="Flame#1" type="Particles2D" parent="Area/Sprite2"]
+[node name="Flame#1" type="Particles2D" parent="Area/RocketSprite"]
 position = Vector2( -0.178699, 2.00878 )
 z_index = -4
 lifetime = 0.8
 speed_scale = 0.4
-process_material = SubResource( 3 )
+process_material = SubResource( 4 )
 
-[node name="Flame#2" type="Particles2D" parent="Area/Sprite2"]
+[node name="Flame#2" type="Particles2D" parent="Area/RocketSprite"]
 position = Vector2( 0.678923, 3.3282 )
 z_index = -1
 lifetime = 0.8
 speed_scale = 0.4
-process_material = SubResource( 3 )
+process_material = SubResource( 4 )
 
-[node name="Flame#3" type="Particles2D" parent="Area/Sprite2"]
+[node name="Flame#3" type="Particles2D" parent="Area/RocketSprite"]
 position = Vector2( -0.772436, 3.26223 )
 z_index = -4
 lifetime = 0.8
 speed_scale = 0.4
-process_material = SubResource( 3 )
+process_material = SubResource( 4 )
 [connection signal="area_shape_entered" from="Area" to="Area" method="_on_KinematicBody2D_area_shape_entered"]

@@ -10,11 +10,6 @@
 [ext_resource path="res://Scenes/PlanetGauges/EarthGauge.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Scripts/UI/GUI.gd" type="Script" id=9]
 
-
-
-
-
-
 [sub_resource type="DynamicFont" id=1]
 size = 22
 font_data = ExtResource( 2 )
@@ -104,7 +99,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="ProgressBar" type="ProgressBar" parent="Resources"]
+[node name="AsteroidProgress" type="ProgressBar" parent="Resources"]
 margin_left = 50.38
 margin_top = 50.095
 margin_right = 162.38
