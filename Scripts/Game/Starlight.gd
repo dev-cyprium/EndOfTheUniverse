@@ -16,7 +16,7 @@ func add_new_star():
 	var vps = get_viewport().size
 	var star = Sprite.new()
 	var base_opacity = randf()
-	star.z_index = -1
+	star.z_index = -20
 	star.texture = texture
 	var m = material.duplicate()
 	m.set_shader_param("base_opacity", base_opacity)

@@ -32,7 +32,11 @@ script = ExtResource( 7 )
 position = Vector2( 512.773, 302.505 )
 current = true
 
-[node name="Starlight" type="Node" parent="."]
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+process_priority = -5
+layer = -5
+
+[node name="Starlight" type="Node" parent="CanvasLayer"]
 script = ExtResource( 4 )
 
 [node name="UI" type="CanvasLayer" parent="."]

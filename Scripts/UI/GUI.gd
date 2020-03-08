@@ -6,6 +6,8 @@ var asteroid_progress = null
 var camera = null
 var pan_top = false
 var pan_bottom = false
+var pan_left = false
+var pan_right = false
 export var pan_speed = 250.0
 export var pan_edge = 35
 
@@ -23,13 +25,18 @@ func _on_EarthGauge_ButtonPresss(gauge):
 	emit_signal("EarthGaugePress", gauge)
 
 func _process(delta):
+	if pan_left:
+		camera.position.x -= delta * pan_speed
+	
+	if pan_right:
+		camera.position.x += delta * pan_speed
+	
 	if pan_top:
 		camera.position.y -= delta * pan_speed
 		
 	if pan_bottom:
 		camera.position.y += delta * pan_speed
 
-	
 func _input(event):
 	if event is InputEventMouseMotion:
 		if event.position.y < pan_edge:
@@ -43,3 +50,15 @@ func _input(event):
 			
 		if event.position.y < get_viewport().size.y - pan_edge:
 			pan_bottom = false
+			
+		if event.position.x < pan_edge:
+			pan_left = true
+		
+		if event.position.x > pan_edge:
+			pan_left = false
+			
+		if event.position.x > get_viewport().size.x - pan_edge:
+			pan_right = true
+			
+		if event.position.x < get_viewport().size.x - pan_edge:
+			pan_right = false
